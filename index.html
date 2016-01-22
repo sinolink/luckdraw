@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>国金证券互联网分公司2016年年会抽奖系统</title>
+	<head>
+	<script id="jquery_172" type="text/javascript" class="library" src="js/jquery-1.7.2.min.js"></script>
+	<script id="jquery_172" type="text/javascript" class="library" src="js/conf.js"></script>
+	
+	
+	<style>
+	body{ background:#fff;}
+	.wrap{ width:400px; margin:50px auto; font-family:"微软雅黑";text-align: center;vertical-align:middle;}
+	.show{ width:400px; height:400px; background-color:#388ee1; line-height:300px; text-align:center; color:#fff; font-size:28px; -moz-border-radius:150px; -webkit-border-radius:150px; border-radius:150px; background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#388ee1), to(#388ee1), color-stop(0.5,#388ee1)); -moz-box-shadow:2px 2px 10px #BBBBBB; -webkit-box-shadow:2px 2px 10px #BBBBBB; box-shadow:2px 2px 10px #BBBBBB;border-radius:50%; overflow:hidden;line-height: 400px;position: relative; }
+
+
+	img{
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+			padding: auto;
+			text-align: center;
+			overflow: auto;  
+			  margin: auto;  
+			  position: absolute;  
+			  top: 0; left: 0; bottom: 0; right: 0; 
+
+		}
+	.btn a{ display:block; width:120px; height:50px; margin:30px auto; text-align:center; line-height:50px; text-decoration:none; color:#fff; -moz-border-radius:25px; -webkit-border-radius:25px; border-radius:25px;}
+	.btn a.start{ background:#80b600;}
+	.btn a.start:hover{ background:#75a700;}
+	.btn a.stop{ background:#00a2ff;}
+	.btn a.stop:hover{ background:#008bdb;}
+
+	#container {
+	    width: 900px;
+	    margin: 10px auto;
+	    position: relative;
+	}
+
+	.lucky-balls {
+	  padding: 20px;
+	  margin: 10px 0;
+	  list-style: none;
+	}
+
+	.lucky-balls li {
+	  position: relative;
+	  left: auto !important;
+	  top: auto !important;
+	  width: 60px !important;
+	  height: 60px !important;
+	  float: left;
+	  margin: 5px 10px;
+	  font-weight: bold;
+	  color: #fff;
+	  background: #f60;
+	  -moz-border-radius:30px; 
+	  -webkit-border-radius:30px;
+	  text-align:center;
+	  line-height: 60px;
+	}
+	</style>
+	
+	</head>
+
+	<body>
+		<!-- <a href="javascript:cleanData();">清除中奖数据</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(4);">4</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(3);">3</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(2);">2</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(1);">1</a> -->
+	<div class="wrap">
+		
+		<div class="show" id="show">
+			<!-- 点击按钮开始抽奖 -->
+
+			<img src='images/icon256.jpg' />
+		</div>
+		<div class="btn">
+			<a href="javascript:void(0)" class="start" id="btn">开始抽奖</a>
+		</div>
+	</div>
+	
+	<div id="container">
+		<ul id="lucky-balls" class="lucky-balls">
+		</ul>
+        
+    </div>
+    <script id="jquery_172" type="text/javascript" class="library" src="js/lucky.js"></script>
+	</body>
+</html>
