@@ -1,88 +1,179 @@
 <!DOCTYPE html>
 <html>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>国金证券互联网分公司2016年年会抽奖系统</title>
-	<head>
-	<script id="jquery_172" type="text/javascript" class="library" src="js/jquery-1.7.2.min.js"></script>
-	<script id="jquery_172" type="text/javascript" class="library" src="js/conf.js"></script>
-	
-	
-	<style>
-	body{ background:#fff;}
-	.wrap{ width:400px; margin:50px auto; font-family:"微软雅黑";text-align: center;vertical-align:middle;}
-	.show{ width:400px; height:400px; background-color:#388ee1; line-height:300px; text-align:center; color:#fff; font-size:28px; -moz-border-radius:150px; -webkit-border-radius:150px; border-radius:150px; background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#388ee1), to(#388ee1), color-stop(0.5,#388ee1)); -moz-box-shadow:2px 2px 10px #BBBBBB; -webkit-box-shadow:2px 2px 10px #BBBBBB; box-shadow:2px 2px 10px #BBBBBB;border-radius:50%; overflow:hidden;line-height: 400px;position: relative; }
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>国金证券互联网分公司2017年年会抽奖</title>
+<head>
+    <script type="text/javascript" class="library" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" class="library" src="js/users.js"></script>
+    <link href="css/bootstrap.min.css" media="all" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.min.css" media="all" rel="stylesheet"/>
+
+    <style>
+        body {
+            background: #fff;
+            font-family: "微软雅黑", serif;
+
+        }
+
+        .show {
+            width: 400px;
+            height: 400px;
+            background-color: #388ee1;
+            /*line-height: 300px;*/
+            text-align: center;
+            color: #fff;
+            font-size: 28px;
+            -moz-border-radius: 150px;
+            -webkit-border-radius: 150px;
+            border-radius: 150px;
+            /*background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#388ee1), to(#388ee1), color-stop(0.5, #388ee1));*/
+            -moz-box-shadow: 2px 2px 10px #BBBBBB;
+            -webkit-box-shadow: 2px 2px 10px #BBBBBB;
+            box-shadow: 2px 2px 10px #BBBBBB;
+            border-radius: 50%;
+            overflow: hidden;
+            line-height: 400px;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            padding: auto;
+            text-align: center;
+            overflow: auto;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+
+        .btn a {
+            display: block;
+            width: 120px;
+            height: 50px;
+            margin: 30px auto;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            color: #fff;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+        }
+
+        #container {
+            width: 900px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .lucky-balls {
+            padding: 20px;
+            margin: 10px 0;
+            list-style: none;
+        }
+
+        .lucky-balls li {
+            position: relative;
+            left: auto !important;
+            top: auto !important;
+            width: 250px !important;
+            height: 250px !important;
+            float: left;
+            margin: 5px 10px;
+            font-weight: bold;
+            font-size: large;
+            /*color: #fff;*/
+            /*background: #f60;*/
+            -moz-border-radius: 30px;
+            -webkit-border-radius: 30px;
+            text-align: center;
+            line-height: 470px;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*background: #000;*/
+            height: 100%;
+            width: 100%;
+        }
+
+        #confetti {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .batch_line {
+            padding-bottom: 30px;
+            border: 0;
+            /*border-top: 1px double #21bdee;*/
+            border-top: 4px double #bbb;
+            text-align: center;
+        }
+
+        hr:after {
+            /*content: '\002665';*/
+            content: '我是历史分割线';
+
+            position: relative;
+            top: -15px;
+            padding: 0 10px;
+            background: #f0f0f0;
+            color: #678cbb;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
 
 
-	img{
-			max-width: 100%;
-			max-height: 100%;
-			width: auto;
-			height: auto;
-			padding: auto;
-			text-align: center;
-			overflow: auto;  
-			  margin: auto;  
-			  position: absolute;  
-			  top: 0; left: 0; bottom: 0; right: 0; 
+<body>
 
-		}
-	.btn a{ display:block; width:120px; height:50px; margin:30px auto; text-align:center; line-height:50px; text-decoration:none; color:#fff; -moz-border-radius:25px; -webkit-border-radius:25px; border-radius:25px;}
-	.btn a.start{ background:#388ee1;}
-	.btn a.start:hover{ background:#388ee1;}
-	.btn a.stop{ background:#00a2ff;}
-	.btn a.stop:hover{ background:#008bdb;}
+<!--<audio src="audio/horse.ogg" controls="controls">-->
+    <!--Your browser does not support the audio element.-->
+<!--</audio>-->
 
-	#container {
-	    width: 900px;
-	    margin: 10px auto;
-	    position: relative;
-	}
-
-	.lucky-balls {
-	  padding: 20px;
-	  margin: 10px 0;
-	  list-style: none;
-	}
-
-	.lucky-balls li {
-	  position: relative;
-	  left: auto !important;
-	  top: auto !important;
-	  width: 60px !important;
-	  height: 60px !important;
-	  float: left;
-	  margin: 5px 10px;
-	  font-weight: bold;
-	  color: #fff;
-	  background: #f60;
-	  -moz-border-radius:30px; 
-	  -webkit-border-radius:30px;
-	  text-align:center;
-	  line-height: 60px;
-	}
-	</style>
-	
-	</head>
-
-	<body>
-		<!-- <a href="javascript:cleanData();">清除中奖数据</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(4);">4</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(3);">3</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(2);">2</a>&nbsp;&nbsp;<a href="javascript:setPrizerNum(1);">1</a> -->
-	<div class="wrap">
-		
-		<div class="show" id="show">
-			<!-- 点击按钮开始抽奖 -->
-
-			<img src='images/icon256.jpg' />
-		</div>
-		<div class="btn">
-			<a href="javascript:void(0)" class="start" id="btn">开始抽奖</a>
-		</div>
-	</div>
-	
-	<div id="container">
-		<ul id="lucky-balls" class="lucky-balls">
-		</ul>
-        
+<canvas id="confetti" width="1" height="1"></canvas>
+<div class="container " role="main">
+    <div class="page-header" align="center">
+        <h2>佣金宝2017年会抽奖</h2>
     </div>
-    <script id="jquery_172" type="text/javascript" class="library" src="js/lucky.js"></script>
-	</body>
+
+    <div class="row">
+        <div class="col-sm-1">
+            <input type="text" value="1" class="form-control" id="rollNums" placeholder="人数">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="show col-sm-1" id="show">
+            <img id="imgShow" class="img-rounded" src='images/icon256.jpg'/>
+        </div>
+        <div class="col-sm-1">
+            <div id="container">
+                <ul id="lucky-balls" class="lucky-balls">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+</div>
+
+</body>
+
+
+<script type="text/javascript" class="library" src="js/lucky.js"></script>
+<!--<script>-->
+<!--$('#finishAudio').play();-->
+<!--</script>-->
 </html>
