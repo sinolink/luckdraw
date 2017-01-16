@@ -456,7 +456,6 @@ oldItems.forEach(function (chosenGuy) {
 });
 
 
-
 function change() {
     var showMember = getRandomMember();
     while (isMemberGuyRolled(showMember) != -1) {
@@ -530,7 +529,6 @@ function run() {
             var chosenGuy = getRandomMember();
 
 
-
             while (isMemberGuyRolled(chosenGuy) != -1) {
                 //change();
                 chosenGuy = getRandomMember();
@@ -561,11 +559,19 @@ function showLuckyGuy(chosenGuy) {
         '<span class="luckyGuyName">' + chosenGuy.fullName + '</span></li>');
 }
 
+function showStatus() {
+    alert("当前已抽取"+oldItems.length);
+}
+
+
 document.addEventListener('keydown', function (ev) {
     if (ev.keyCode == '13') {
         run()
     } else if (ev.keyCode == '79') {
         cleanData();
+    } else if (ev.keyCode == '83') {
+        showStatus();
     }
+
 }, false);
 
