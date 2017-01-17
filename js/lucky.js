@@ -506,9 +506,13 @@ function run() {
 
 
         var nums = $('#rollNums').val();
-        if (!confirm('抽取' + nums + '人现在开始！')) {
+        if (!confirm('抽取' + nums + '人现在开始！')||nums<=0) {
             return;
         }
+
+
+        $("#showTime").hide();
+        $("#show").addClass("show");
 
         confetti.stop();
         $('#confetti').hide();
@@ -517,6 +521,8 @@ function run() {
         open = true;
     } else {
 
+        $("#showTime").show();
+        $("#show").removeClass("show");
 
         clearInterval(timer);
 
@@ -535,14 +541,14 @@ function run() {
             }
 
             saveDataToLocalStorage(chosenGuy);
+            var nums = $('#rollNums').val();
+            showLuckyGuy(chosenGuy,nums);
 
-            showLuckyGuy(chosenGuy);
-
-            if (rollNums == 1) {
-                $('#imgShow').attr('src', 'photos/' + chosenGuy.fileName);
-            } else {
+            // if (rollNums == 1) {
+            //     $('#imgShow').attr('src', 'photos/' + chosenGuy.fileName);
+            // } else {
                 $('#imgShow').attr('src', 'images/xm-4.png');
-            }
+            // }
         }
 
         $('#confetti').show();
@@ -552,11 +558,19 @@ function run() {
     }
 }
 
-function showLuckyGuy(chosenGuy) {
+function showLuckyGuy(chosenGuy,num) {
+    // console.log(chosenGuy);
+    var heightC=document.body.clientHeight;var ling_height=470;
+    if(num<=3){
+        heightC=document.body.clientHeight-400;
+        ling_height=(470+heightC-80);
+    }else{
+        heightC=250;
+    }
     $("#lucky-balls").prepend(
-        '<li style="left: 350px; top: 150px;margin-bottom: 30px;">' +
+        '<li style="left: 350px; top: 150px;margin-bottom: 30px;height: '+heightC+'px; line-height: '+ling_height+'px">' +
         '<img style="margin-bottom:30px;" class="img-thumbnail" src="photos/' + chosenGuy.fileName + '" />' +
-        '<span class="luckyGuyName">' + chosenGuy.fullName + '</span></li>');
+        '<span class="luckyGuyName" style="top: -5px;">' + chosenGuy.fullName + '</span></li>');
 }
 
 function showStatus() {
