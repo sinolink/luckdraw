@@ -61,8 +61,8 @@ var retina = window.devicePixelRatio,
         || w.clearTimeout;
 
     rAF = w.requestAnimationFrame
-    || w.webkitRequestAnimationFrame
-    || fallback;
+        || w.webkitRequestAnimationFrame
+        || fallback;
 
     cAF = function (id) {
         cancel.call(w, id);
@@ -506,9 +506,22 @@ function run() {
 
 
         var nums = $('#rollNums').val();
-        if (!confirm('抽取' + nums + '人现在开始！')||nums<=0) {
+
+        if (isNaN(nums)) {
+            alert("Ops,人数有误");
             return;
         }
+
+        //if (!confirm('抽取' + nums + '人现在开始！')||nums<=0) {
+        //    return;
+        //}
+        var restNums = members.length - oldItems.length;
+        if (nums > restNums) {
+            alert("抽取人数 （" + nums + ") 大于剩余人数（" + restNums + ")");
+            return;
+        }
+
+        console.log("抽取人数: " + nums);
 
 
         $("#showTime").hide();
@@ -542,12 +555,12 @@ function run() {
 
             saveDataToLocalStorage(chosenGuy);
             var nums = $('#rollNums').val();
-            showLuckyGuy(chosenGuy,nums);
+            showLuckyGuy(chosenGuy, nums);
 
             // if (rollNums == 1) {
             //     $('#imgShow').attr('src', 'photos/' + chosenGuy.fileName);
             // } else {
-                $('#imgShow').attr('src', 'images/xm-4.png');
+            $('#imgShow').attr('src', 'images/xm-4.png');
             // }
         }
 
@@ -558,34 +571,69 @@ function run() {
     }
 }
 
-function showLuckyGuy(chosenGuy,num) {
+function showLuckyGuy(chosenGuy, num) {
     // console.log(chosenGuy);
-    var heightC=document.body.clientHeight;var ling_height=470;
-    if(num<=3){
-        heightC=document.body.clientHeight-400;
-        ling_height=(470+heightC-80);
-    }else{
-        heightC=250;
+    var heightC = document.body.clientHeight;
+    var ling_height = 470;
+    if (num <= 3) {
+        heightC = document.body.clientHeight - 400;
+        ling_height = (470 + heightC - 80);
+    } else {
+        heightC = 250;
     }
     $("#lucky-balls").prepend(
-        '<li style="left: 350px; top: 150px;margin-bottom: 30px;height: '+heightC+'px; line-height: '+ling_height+'px">' +
+        '<li style="left: 350px; top: 150px;margin-bottom: 30px;height: ' + heightC + 'px; line-height: ' + ling_height + 'px">' +
         '<img style="margin-bottom:30px;" class="img-thumbnail" src="photos/' + chosenGuy.fileName + '" />' +
         '<span class="luckyGuyName" style="top: -5px;">' + chosenGuy.fullName + '</span></li>');
 }
 
 function showStatus() {
-    alert("当前已抽取"+oldItems.length);
+    alert("当前已抽取" + oldItems.length);
 }
 
 
-document.addEventListener('keydown', function (ev) {
-    if (ev.keyCode == '13') {
-        run()
-    } else if (ev.keyCode == '79') {
-        cleanData();
-    } else if (ev.keyCode == '83') {
-        showStatus();
-    }
+//document.addEventListener('keydown', function (ev) {
+//
+//
+//}, false);
 
-}, false);
+
+$(document).ready(
+    function () {
+        document.onkeydown = function () {
+            var ev = window.event;
+            if (ev.keyCode == '13') {
+                run()
+            } else if (ev.keyCode == '79') {
+                cleanData();
+            } else if (ev.keyCode == '83') {
+                showStatus();
+            }
+            //快捷键 输入人数
+            if (ev.ctrlKey) {
+                var nums=1;
+                if(ev.keyCode == 49){
+                    nums=1;
+                }else if(ev.keyCode == 50){
+                    nums=2;
+                }else if(ev.keyCode == 51){
+                    nums=3;
+                }else if(ev.keyCode == 52){
+                    nums=4;
+                }else if(ev.keyCode == 53){
+                    nums=5;
+                }else if(ev.keyCode == 54){
+                    nums=6;
+                }else if(ev.keyCode == 55){
+                    nums=7;
+                }else if(ev.keyCode == 56){
+                    nums=8;
+                }else if(ev.keyCode == 57){
+                    nums=9;
+                }
+                $("#rollNums").val(nums);
+            }
+        }
+    }
+);
 
