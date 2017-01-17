@@ -84,7 +84,7 @@
             left: auto !important;
             top: auto !important;
             width: 250px !important;
-            height: 250px !important;
+            /*height: 350px !important;*/
             float: left;
             margin: 5px 10px;
             font-weight: bold;
@@ -123,7 +123,7 @@
 
         hr:after {
             /*content: '\002665';*/
-            content: '我是历史分割线';
+            /*content: '我是历史分割线';*/
 
             position: relative;
             top: -15px;
@@ -142,12 +142,17 @@
 <!--<audio src="audio/horse.ogg" controls="controls">-->
     <!--Your browser does not support the audio element.-->
 <!--</audio>-->
+<div align="center" style="position: fixed;width: 100%;z-index: 1000;background-color: white;padding-bottom: 9px;border-bottom: 1px solid #eee;">
+    <h2 style="font-weight: 700;color: cadetblue;">佣金宝2017年会抽奖</h2>
+</div>
+<div style="height: 150px;">
 
+</div>
 <canvas id="confetti" width="1" height="1"></canvas>
 <div class="container " role="main">
-    <div class="page-header" align="center">
-        <h2>佣金宝2017年会抽奖</h2>
-    </div>
+    <!--<div class="page-header" align="center">-->
+        <!--<h2>佣金宝2017年会抽奖</h2>-->
+    <!--</div>-->
 
     <div class="row">
         <div class="col-sm-1">
@@ -159,7 +164,7 @@
         <div class="show col-sm-1" id="show">
             <img id="imgShow" class="img-rounded" src='images/icon256.jpg'/>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-1" id="showTime" style="display: none;">
             <div id="container">
                 <ul id="lucky-balls" class="lucky-balls">
                 </ul>
@@ -171,7 +176,10 @@
 
 </body>
 
-
+<script>
+    var leftNum=(document.body.clientWidth-520)/2
+    $("#show").css("left",leftNum);
+</script>
 <script type="text/javascript" class="library" src="js/lucky.js"></script>
 <!--<script>-->
 <!--$('#finishAudio').play();-->
